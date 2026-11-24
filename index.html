@@ -1,0 +1,1463 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gtv小蓝 - 官方视频门户_高清原创内容社区</title>
+<meta name="description" content="gtv小蓝官方网站，专注高清原创视频内容的品质平台，汇聚创作者社区、精品专题与企业动态，为用户提供值得信赖的观影与创作体验。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f33'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%2333d6ff' stroke-width='4'/%3E%3Cpath d='M27 23 L45 32 L27 41 Z' fill='%2333d6ff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --lb-bg:#0a1622;
+  --lb-bg-2:#0f2135;
+  --lb-panel:#122840;
+  --lb-panel-2:#16324f;
+  --lb-line:rgba(120,190,255,.16);
+  --lb-line-strong:rgba(120,190,255,.32);
+  --lb-text:#e8f2fb;
+  --lb-muted:#9db5cc;
+  --lb-accent:#2fd2ff;
+  --lb-accent-2:#6ef0c9;
+  --lb-warm:#ffb84d;
+  --lb-radius:16px;
+  --lb-shadow:0 18px 46px rgba(0,0,0,.42);
+  --lb-head-h:112px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 560px at 12% -6%, rgba(47,210,255,.13), transparent 62%),
+    radial-gradient(900px 520px at 92% 8%, rgba(110,240,201,.09), transparent 60%),
+    var(--lb-bg);
+  color:var(--lb-text);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700;letter-spacing:.01em;}
+p{margin:0;}
+ul,ol{margin:0;padding:0;list-style:none;}
+.lb-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto;}
+
+/* ===== 吸顶区：公告 + 页头 ===== */
+.lb-sticky{position:sticky;top:0;z-index:90;}
+.lb-notice{
+  background:linear-gradient(90deg,#0d3a55,#124a63 45%,#0d3a55);
+  border-bottom:1px solid var(--lb-line);
+  font-size:13.5px;
+  color:#d5ecfb;
+}
+.lb-notice-inner{
+  display:flex;align-items:center;gap:12px;
+  padding:8px 0;min-height:38px;flex-wrap:wrap;
+}
+.lb-notice-tag{
+  flex:none;background:var(--lb-accent);color:#04202e;font-weight:700;
+  font-size:11.5px;padding:2px 9px;border-radius:999px;letter-spacing:.06em;
+}
+.lb-notice-text{flex:1 1 320px;min-width:0;}
+.lb-notice-text b{color:#fff;}
+.lb-notice-link{
+  flex:none;font-size:12.5px;color:var(--lb-accent-2);
+  border-bottom:1px dashed rgba(110,240,201,.55);padding-bottom:1px;
+}
+.lb-site-head{
+  background:rgba(9,21,33,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--lb-line);
+}
+.lb-head-inner{
+  display:flex;align-items:center;gap:22px;padding:14px 0;
+}
+.lb-brand{display:flex;align-items:center;gap:11px;flex:none;}
+.lb-brand-mark{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(150deg,#122e47,#0b1c2c);
+  border:1px solid var(--lb-line-strong);
+  display:grid;place-items:center;
+}
+.lb-brand-mark svg{width:22px;height:22px;}
+.lb-brand-name{font-size:19px;font-weight:800;letter-spacing:.02em;}
+.lb-brand-name em{
+  font-style:normal;color:var(--lb-accent);
+}
+.lb-brand-sub{font-size:11.5px;color:var(--lb-muted);letter-spacing:.16em;}
+.lb-nav{display:flex;align-items:center;gap:4px;flex:1 1 auto;flex-wrap:wrap;}
+.lb-nav a{
+  font-size:14.5px;color:var(--lb-muted);padding:7px 11px;border-radius:9px;
+  transition:color .2s,background .2s;
+}
+.lb-nav a:hover,.lb-nav a:focus-visible{color:#fff;background:rgba(47,210,255,.12);}
+.lb-head-tools{display:flex;align-items:center;gap:10px;flex:none;}
+.lb-search{
+  display:flex;align-items:center;gap:7px;
+  background:var(--lb-panel);border:1px solid var(--lb-line);
+  border-radius:999px;padding:5px 6px 5px 13px;
+}
+.lb-search input{
+  border:0;background:transparent;color:var(--lb-text);font-size:13.5px;
+  width:132px;outline:none;
+}
+.lb-search input::placeholder{color:#6d879e;}
+.lb-search button{
+  border:0;border-radius:999px;padding:5px 13px;font-size:13px;font-weight:700;
+  background:linear-gradient(120deg,var(--lb-accent),#3ea8ff);color:#04202e;
+}
+.lb-menu-btn{
+  display:none;border:1px solid var(--lb-line-strong);background:var(--lb-panel);
+  color:var(--lb-text);border-radius:10px;padding:8px 11px;font-size:13px;
+}
+.lb-search-feedback{
+  font-size:12.5px;color:var(--lb-accent-2);padding:0 0 10px;
+  display:none;
+}
+.lb-search-feedback.is-on{display:block;}
+
+/* ===== 锚点偏移 ===== */
+.lb-anchor{scroll-margin-top:calc(var(--lb-head-h) + 16px);}
+
+/* ===== 通用标题 ===== */
+.lb-sec{padding:66px 0 8px;}
+.lb-sec-head{margin-bottom:26px;}
+.lb-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.2em;color:var(--lb-accent-2);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.lb-eyebrow::before{content:"";width:22px;height:2px;background:var(--lb-accent);border-radius:2px;}
+.lb-sec-title{font-size:clamp(22px,2.7vw,30px);}
+.lb-sec-desc{color:var(--lb-muted);font-size:14.5px;margin-top:9px;max-width:760px;}
+
+/* ===== 首屏 ===== */
+.lb-hero{padding:44px 0 10px;}
+.lb-hero-grid{
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);
+  gap:40px;align-items:center;
+}
+.lb-hero-copy h1{
+  font-size:clamp(38px,5.6vw,64px);
+  letter-spacing:-.01em;line-height:1.06;margin-bottom:8px;
+}
+.lb-hero-copy h1 span{
+  background:linear-gradient(96deg,var(--lb-accent),var(--lb-accent-2) 70%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lb-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--lb-line-strong);border-radius:999px;
+  padding:5px 14px;font-size:12.5px;color:var(--lb-accent);
+  background:rgba(47,210,255,.08);margin-bottom:16px;
+}
+.lb-hero-badge i{width:6px;height:6px;border-radius:50%;background:var(--lb-accent);}
+.lb-hero-lead{
+  font-size:16px;color:#c6dcee;margin:14px 0 18px;max-width:540px;
+}
+.lb-hero-body{color:var(--lb-muted);font-size:14.5px;max-width:560px;}
+.lb-hero-body strong{color:var(--lb-text);font-weight:600;}
+.lb-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+.lb-btn{
+  border:1px solid transparent;border-radius:12px;padding:11px 22px;
+  font-size:14.5px;font-weight:700;letter-spacing:.02em;
+  transition:transform .18s,box-shadow .2s,background .2s,border-color .2s;
+}
+.lb-btn:hover{transform:translateY(-2px);}
+.lb-btn-primary{
+  background:linear-gradient(118deg,var(--lb-accent),#43a9ff);
+  color:#041f2d;box-shadow:0 10px 26px rgba(47,210,255,.26);
+}
+.lb-btn-ghost{
+  background:rgba(255,255,255,.04);color:var(--lb-text);
+  border-color:var(--lb-line-strong);
+}
+.lb-btn-ghost:hover{background:rgba(47,210,255,.12);border-color:var(--lb-accent);}
+.lb-hero-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;margin-top:30px;
+}
+.lb-stat{
+  background:linear-gradient(160deg,var(--lb-panel),rgba(18,40,64,.35));
+  border:1px solid var(--lb-line);border-radius:14px;padding:15px 14px;
+}
+.lb-stat-num{font-size:24px;font-weight:800;color:#fff;letter-spacing:.01em;}
+.lb-stat-num small{font-size:13px;color:var(--lb-accent);margin-left:2px;font-weight:700;}
+.lb-stat-label{font-size:12.5px;color:var(--lb-muted);margin-top:3px;}
+.lb-hero-visual{position:relative;}
+.lb-hero-frame{
+  border-radius:22px;overflow:hidden;border:1px solid var(--lb-line-strong);
+  box-shadow:var(--lb-shadow);aspect-ratio:4/3.4;background:#0d2033;
+}
+.lb-hero-frame img{width:100%;height:100%;object-fit:cover;}
+.lb-hero-float{
+  position:absolute;left:-18px;bottom:26px;
+  background:rgba(11,26,41,.94);border:1px solid var(--lb-line-strong);
+  border-radius:14px;padding:12px 16px;backdrop-filter:blur(8px);
+  box-shadow:var(--lb-shadow);max-width:250px;
+}
+.lb-hero-float .lb-mini-tag{font-size:11px;color:var(--lb-accent-2);letter-spacing:.12em;}
+.lb-hero-float p{font-size:13px;color:#cfe4f5;margin-top:4px;}
+.lb-hero-float b{color:#fff;}
+
+/* ===== 关键词解析 ===== */
+.lb-about-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
+  gap:36px;align-items:start;
+}
+.lb-prose p{color:#bfd4e6;font-size:15px;margin-bottom:15px;}
+.lb-prose h3{
+  font-size:18.5px;margin:26px 0 10px;color:#fff;
+  padding-left:13px;border-left:3px solid var(--lb-accent);line-height:1.4;
+}
+.lb-prose h3:first-child{margin-top:0;}
+.lb-prose strong{color:var(--lb-accent-2);font-weight:600;}
+.lb-about-side{display:grid;gap:16px;}
+.lb-side-card{
+  background:linear-gradient(165deg,var(--lb-panel),rgba(15,33,53,.5));
+  border:1px solid var(--lb-line);border-radius:var(--lb-radius);padding:20px;
+}
+.lb-side-card h3{font-size:15.5px;margin-bottom:12px;color:#fff;}
+.lb-check-list li{
+  font-size:13.8px;color:#b7cfe3;padding:7px 0 7px 24px;position:relative;
+  border-bottom:1px dashed rgba(120,190,255,.12);
+}
+.lb-check-list li:last-child{border-bottom:0;}
+.lb-check-list li::before{
+  content:"";position:absolute;left:4px;top:15px;
+  width:9px;height:9px;border-radius:3px;
+  background:linear-gradient(135deg,var(--lb-accent),var(--lb-accent-2));
+}
+.lb-side-quote{
+  font-size:14px;color:#d7e9f7;font-style:italic;line-height:1.85;
+}
+
+/* ===== 焦点大图 + 文字列表 ===== */
+.lb-focus-grid{
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+  gap:28px;align-items:stretch;
+}
+.lb-focus-main{
+  border:1px solid var(--lb-line);border-radius:20px;overflow:hidden;
+  background:var(--lb-panel);display:flex;flex-direction:column;
+}
+.lb-focus-thumb{position:relative;aspect-ratio:16/9;background:#0c1e30;}
+.lb-focus-thumb img{width:100%;height:100%;object-fit:cover;}
+.lb-play-badge{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(0deg,rgba(6,17,28,.7),transparent 55%);
+}
+.lb-play-badge span{
+  width:56px;height:56px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.85);
+  display:grid;place-items:center;background:rgba(8,22,36,.42);
+  backdrop-filter:blur(4px);
+}
+.lb-play-badge span::after{
+  content:"";margin-left:4px;
+  border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;
+}
+.lb-focus-body{padding:20px 22px 22px;}
+.lb-tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:11px;}
+.lb-tag{
+  font-size:11.5px;padding:3px 10px;border-radius:999px;
+  background:rgba(47,210,255,.13);color:var(--lb-accent);
+  border:1px solid rgba(47,210,255,.24);
+}
+.lb-tag.is-warm{background:rgba(255,184,77,.13);color:var(--lb-warm);border-color:rgba(255,184,77,.3);}
+.lb-focus-body h3{font-size:20px;margin-bottom:9px;line-height:1.4;}
+.lb-focus-body p{font-size:14px;color:var(--lb-muted);}
+.lb-meta{
+  display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:#8ea9c1;
+  margin-top:14px;padding-top:13px;border-top:1px dashed rgba(120,190,255,.16);
+}
+.lb-meta b{color:#cfe4f5;font-weight:600;}
+.lb-list{display:grid;gap:12px;}
+.lb-list-item{
+  display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:14px;align-items:center;
+  background:rgba(18,40,64,.6);border:1px solid var(--lb-line);
+  border-radius:14px;padding:14px 16px;transition:border-color .2s,background .2s,transform .2s;
+}
+.lb-list-item:hover{border-color:var(--lb-line-strong);background:var(--lb-panel-2);transform:translateX(3px);}
+.lb-rank{
+  font-size:17px;font-weight:800;color:var(--lb-accent);font-variant-numeric:tabular-nums;
+  text-align:center;
+}
+.lb-list-item h4{font-size:14.8px;line-height:1.45;margin-bottom:3px;}
+.lb-list-item p{font-size:12.8px;color:var(--lb-muted);line-height:1.6;}
+.lb-list-actions{display:flex;gap:7px;flex:none;}
+.lb-icon-btn{
+  border:1px solid var(--lb-line);background:rgba(255,255,255,.03);
+  color:#a9c3d9;border-radius:9px;padding:5px 9px;font-size:12px;
+  transition:color .2s,border-color .2s,background .2s;
+  white-space:nowrap;
+}
+.lb-icon-btn:hover{color:var(--lb-accent);border-color:var(--lb-accent);}
+.lb-icon-btn.is-liked{color:#ff7d9c;border-color:rgba(255,125,156,.6);background:rgba(255,125,156,.1);}
+.lb-icon-btn.is-saved{color:var(--lb-warm);border-color:rgba(255,184,77,.55);background:rgba(255,184,77,.1);}
+
+/* ===== 三列等高卡片 ===== */
+.lb-card-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;
+}
+.lb-vcard{
+  background:linear-gradient(170deg,var(--lb-panel),rgba(14,31,49,.55));
+  border:1px solid var(--lb-line);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .22s,transform .22s,box-shadow .22s;
+}
+.lb-vcard:hover{border-color:var(--lb-line-strong);transform:translateY(-4px);box-shadow:var(--lb-shadow);}
+.lb-vcard-thumb{aspect-ratio:16/9;background:#0c1e30;overflow:hidden;position:relative;}
+.lb-vcard-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.lb-vcard:hover .lb-vcard-thumb img{transform:scale(1.045);}
+.lb-vcard-body{padding:17px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1;}
+.lb-vcard-body h3{font-size:16px;line-height:1.45;}
+.lb-vcard-body p{font-size:13.4px;color:var(--lb-muted);flex:1;}
+.lb-vcard-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-size:12.2px;color:#8ea9c1;
+  padding-top:10px;border-top:1px dashed rgba(120,190,255,.14);
+}
+.lb-author-chip{display:inline-flex;align-items:center;gap:7px;}
+.lb-ava{
+  border-radius:50%;flex:none;display:grid;place-items:center;
+  font-weight:800;color:#04202e;background:linear-gradient(140deg,var(--lb-accent),var(--lb-accent-2));
+  width:26px;height:26px;font-size:12px;
+}
+.lb-ava.lb-ava-b{background:linear-gradient(140deg,#ffb84d,#ff8a5c);}
+.lb-ava.lb-ava-c{background:linear-gradient(140deg,#b28bff,#6ea8ff);}
+.lb-ava.lb-ava-d{background:linear-gradient(140deg,#6ef0c9,#33d6ff);}
+.lb-ava.lb-ava-e{background:linear-gradient(140deg,#ff8fb1,#ffb84d);}
+
+/* ===== 专题 ===== */
+.lb-special-grid{display:grid;gap:18px;}
+.lb-special{
+  display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.4fr);
+  gap:24px;background:rgba(16,36,57,.7);border:1px solid var(--lb-line);
+  border-radius:18px;padding:22px;align-items:center;
+}
+.lb-special:nth-child(even){grid-template-columns:minmax(0,1.4fr) minmax(0,.86fr);}
+.lb-special:nth-child(even) .lb-special-media{order:2;}
+.lb-special-media{border-radius:14px;overflow:hidden;border:1px solid var(--lb-line);aspect-ratio:16/10;background:#0c1e30;}
+.lb-special-media img{width:100%;height:100%;object-fit:cover;}
+.lb-special h3{font-size:18.5px;margin-bottom:8px;}
+.lb-special>div>p{font-size:13.8px;color:var(--lb-muted);margin-bottom:12px;}
+.lb-spec-status{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;
+  color:var(--lb-accent-2);border:1px solid rgba(110,240,201,.35);
+  border-radius:999px;padding:2px 10px;margin-bottom:10px;
+}
+.lb-spec-status i{width:5px;height:5px;border-radius:50%;background:var(--lb-accent-2);}
+.lb-spec-items{display:grid;gap:7px;}
+.lb-spec-items li{
+  font-size:13px;color:#c2d8e9;padding-left:18px;position:relative;
+}
+.lb-spec-items li::before{
+  content:"";position:absolute;left:3px;top:9px;width:6px;height:6px;
+  border-radius:50%;border:1.5px solid var(--lb-accent);
+}
+
+/* ===== 作者双列 ===== */
+.lb-author-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.lb-author{
+  display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;
+  background:rgba(17,37,58,.72);border:1px solid var(--lb-line);
+  border-radius:16px;padding:18px;transition:border-color .2s,background .2s;
+}
+.lb-author:hover{border-color:var(--lb-line-strong);background:var(--lb-panel-2);}
+.lb-author .lb-ava{width:56px;height:56px;font-size:20px;border-radius:16px;}
+.lb-author h3{font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.lb-author .lb-role{
+  font-size:11px;font-weight:600;color:var(--lb-accent);
+  border:1px solid rgba(47,210,255,.3);border-radius:999px;padding:1px 8px;
+}
+.lb-author p{font-size:13.2px;color:var(--lb-muted);margin-top:6px;}
+.lb-author-stats{display:flex;gap:14px;font-size:12px;color:#8ea9c1;margin-top:9px;flex-wrap:wrap;}
+.lb-author-stats b{color:#d5e9f8;font-weight:700;}
+.lb-author-btn{
+  margin-top:10px;border:1px solid var(--lb-line);background:rgba(255,255,255,.03);
+  color:#b9d2e6;border-radius:9px;padding:5px 13px;font-size:12.5px;
+}
+.lb-author-btn:hover{border-color:var(--lb-accent);color:var(--lb-accent);}
+
+/* ===== 评分摘要 + 双列短评 ===== */
+.lb-review-layout{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.4fr);gap:24px;align-items:start;}
+.lb-score{
+  background:linear-gradient(165deg,#123854,var(--lb-panel));
+  border:1px solid var(--lb-line-strong);border-radius:18px;padding:24px;text-align:center;
+}
+.lb-score-num{font-size:52px;font-weight:800;line-height:1;color:#fff;}
+.lb-score-num small{font-size:16px;color:var(--lb-muted);font-weight:600;}
+.lb-score-stars{color:var(--lb-warm);letter-spacing:3px;font-size:17px;margin:8px 0 4px;}
+.lb-score p{font-size:13px;color:var(--lb-muted);}
+.lb-score-bars{display:grid;gap:8px;margin-top:18px;text-align:left;}
+.lb-bar-row{display:grid;grid-template-columns:36px minmax(0,1fr) 34px;gap:9px;align-items:center;font-size:12px;color:#a9c3d9;}
+.lb-bar{height:7px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden;}
+.lb-bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--lb-accent),var(--lb-accent-2));}
+.lb-review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+.lb-review{
+  background:rgba(16,35,55,.72);border:1px solid var(--lb-line);
+  border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;
+}
+.lb-review-top{display:flex;align-items:center;gap:9px;}
+.lb-review-top .lb-ava{width:28px;height:28px;font-size:11.5px;}
+.lb-review-top b{font-size:13.5px;color:#e2f1fc;font-weight:600;}
+.lb-review-top span{font-size:11.5px;color:#7f9ab0;margin-left:auto;}
+.lb-review p{font-size:13.2px;color:#b8cfe1;line-height:1.75;}
+.lb-review .lb-stars{color:var(--lb-warm);font-size:12px;letter-spacing:2px;}
+
+/* ===== 动态 ===== */
+.lb-news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.lb-news{
+  border:1px solid var(--lb-line);border-radius:16px;padding:20px;
+  background:rgba(18,40,64,.5);position:relative;overflow:hidden;
+  transition:border-color .2s,transform .2s;
+}
+.lb-news:hover{border-color:var(--lb-line-strong);transform:translateY(-3px);}
+.lb-news::before{
+  content:"";position:absolute;left:0;top:0;width:3px;height:100%;
+  background:linear-gradient(180deg,var(--lb-accent),transparent);
+}
+.lb-news time{font-size:12px;color:var(--lb-accent-2);letter-spacing:.06em;}
+.lb-news h3{font-size:15.5px;margin:7px 0 7px;line-height:1.5;}
+.lb-news p{font-size:13.2px;color:var(--lb-muted);}
+
+/* ===== FAQ ===== */
+.lb-faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start;}
+.lb-faq{
+  background:rgba(17,37,58,.6);border:1px solid var(--lb-line);
+  border-radius:13px;padding:0 18px;transition:border-color .2s,background .2s;
+}
+.lb-faq[open]{border-color:var(--lb-line-strong);background:var(--lb-panel-2);}
+.lb-faq summary{
+  list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;color:#e2f1fc;
+  padding:15px 26px 15px 0;position:relative;line-height:1.55;
+}
+.lb-faq summary::-webkit-details-marker{display:none;}
+.lb-faq summary::after{
+  content:"+";position:absolute;right:0;top:13px;color:var(--lb-accent);
+  font-size:19px;font-weight:700;line-height:1;
+}
+.lb-faq[open] summary::after{content:"–";}
+.lb-faq p{font-size:13.4px;color:var(--lb-muted);padding:0 0 15px;}
+
+/* ===== 合作墙 ===== */
+.lb-partner-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+.lb-partner{
+  border:1px dashed var(--lb-line-strong);border-radius:13px;
+  padding:18px 14px;text-align:center;font-size:13.5px;color:#c6dcee;
+  background:rgba(255,255,255,.02);transition:border-color .2s,color .2s;
+}
+.lb-partner:hover{border-color:var(--lb-accent);color:#fff;}
+.lb-partner small{display:block;font-size:11.5px;color:#7f9ab0;margin-top:3px;}
+
+/* ===== 投稿区 ===== */
+.lb-submit-band{
+  margin-top:26px;border-radius:20px;padding:32px;
+  background:
+    radial-gradient(600px 220px at 88% 10%, rgba(110,240,201,.16), transparent 62%),
+    linear-gradient(120deg,#123854,#0f2b45);
+  border:1px solid var(--lb-line-strong);
+  display:flex;flex-wrap:wrap;align-items:center;gap:24px;justify-content:space-between;
+}
+.lb-submit-band h2{font-size:clamp(20px,2.5vw,26px);}
+.lb-submit-band p{font-size:14px;color:#c2d8e9;margin-top:8px;max-width:560px;}
+.lb-submit-actions{display:flex;gap:11px;flex-wrap:wrap;}
+
+/* ===== 页脚 ===== */
+.lb-footer{
+  margin-top:70px;border-top:1px solid var(--lb-line);
+  background:linear-gradient(180deg,rgba(9,21,33,.2),#081420);
+  padding:48px 0 26px;
+}
+.lb-foot-grid{display:grid;grid-template-columns:1.5fr repeat(3,minmax(0,1fr));gap:28px;}
+.lb-foot-brand p{font-size:13.4px;color:var(--lb-muted);margin-top:12px;max-width:340px;}
+.lb-foot-col h3{font-size:13.5px;color:#e2f1fc;margin-bottom:12px;letter-spacing:.05em;}
+.lb-foot-col li{font-size:13.2px;color:var(--lb-muted);padding:4px 0;}
+.lb-foot-col a:hover{color:var(--lb-accent);}
+.lb-foot-bottom{
+  margin-top:34px;padding-top:20px;border-top:1px dashed rgba(120,190,255,.16);
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-size:12.5px;color:#7f9ab0;
+}
+.lb-foot-bottom a{color:#93aec4;}
+.lb-foot-bottom a:hover{color:var(--lb-accent);}
+
+/* ===== 回到顶部 ===== */
+.lb-top-btn{
+  position:fixed;right:22px;bottom:26px;z-index:80;
+  width:44px;height:44px;border-radius:14px;
+  border:1px solid var(--lb-line-strong);background:rgba(15,33,53,.92);
+  color:var(--lb-accent);font-size:18px;display:grid;place-items:center;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .2s;
+  backdrop-filter:blur(8px);
+}
+.lb-top-btn.is-visible{opacity:1;pointer-events:auto;}
+.lb-top-btn:hover{transform:translateY(-3px);border-color:var(--lb-accent);}
+
+/* ===== 弹窗 & Toast ===== */
+.lb-modal{
+  position:fixed;inset:0;z-index:120;display:none;place-items:center;padding:22px;
+  background:rgba(4,13,22,.72);backdrop-filter:blur(6px);
+}
+.lb-modal.is-open{display:grid;}
+.lb-modal-card{
+  width:min(520px,100%);max-height:82vh;overflow:auto;
+  background:linear-gradient(170deg,#12304a,#0d2033);
+  border:1px solid var(--lb-line-strong);border-radius:18px;padding:26px;
+  box-shadow:var(--lb-shadow);
+}
+.lb-modal-card h3{font-size:19px;margin-bottom:10px;}
+.lb-modal-card p{font-size:13.8px;color:var(--lb-muted);margin-bottom:14px;}
+.lb-modal-card label{display:block;font-size:12.5px;color:#a9c3d9;margin:12px 0 6px;}
+.lb-modal-card input,.lb-modal-card textarea,.lb-modal-card select{
+  width:100%;border:1px solid var(--lb-line);border-radius:10px;
+  background:rgba(7,20,32,.7);color:var(--lb-text);font-size:13.5px;
+  padding:10px 12px;font-family:inherit;outline:none;
+}
+.lb-modal-card input:focus,.lb-modal-card textarea:focus,.lb-modal-card select:focus{border-color:var(--lb-accent);}
+.lb-modal-card textarea{resize:vertical;min-height:88px;}
+.lb-modal-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.lb-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:rgba(12,36,56,.96);border:1px solid var(--lb-line-strong);
+  color:#e2f1fc;font-size:13.5px;padding:11px 22px;border-radius:12px;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:140;
+  box-shadow:var(--lb-shadow);
+}
+.lb-toast.is-on{opacity:1;transform:translate(-50%,0);}
+
+/* ===== 响应式 ===== */
+@media (max-width:1020px){
+  .lb-hero-grid{grid-template-columns:minmax(0,1fr);gap:30px;}
+  .lb-hero-float{left:14px;bottom:14px;}
+  .lb-about-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-focus-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lb-review-layout{grid-template-columns:minmax(0,1fr);}
+  .lb-foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lb-partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:820px){
+  :root{--lb-head-h:150px;}
+  .lb-head-inner{flex-wrap:wrap;gap:12px;}
+  .lb-nav{
+    display:none;flex-basis:100%;order:5;
+    background:rgba(9,21,33,.98);border:1px solid var(--lb-line);
+    border-radius:12px;padding:8px;gap:2px;
+  }
+  .lb-nav.is-open{display:flex;}
+  .lb-menu-btn{display:inline-block;}
+  .lb-search{margin-left:auto;}
+  .lb-search input{width:104px;}
+  .lb-special,.lb-special:nth-child(even){grid-template-columns:minmax(0,1fr);}
+  .lb-special:nth-child(even) .lb-special-media{order:0;}
+  .lb-author-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-faq-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-news-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-review-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-submit-band{padding:24px;}
+}
+@media (max-width:620px){
+  .lb-wrap{width:calc(100% - 28px);}
+  .lb-card-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-hero-stats{grid-template-columns:minmax(0,1fr);}
+  .lb-list-item{grid-template-columns:26px minmax(0,1fr);}
+  .lb-list-actions{grid-column:1/-1;justify-content:flex-end;}
+  .lb-foot-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-partner-grid{grid-template-columns:minmax(0,1fr);}
+  .lb-hero-float{position:static;margin-top:12px;max-width:none;}
+  .lb-toast{width:calc(100% - 40px);text-align:center;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== S1 公告条 + 页头（吸顶） ===== -->
+<div class="lb-sticky">
+  <div class="lb-notice">
+    <div class="lb-wrap lb-notice-inner">
+      <span class="lb-notice-tag">官方发布</span>
+      <span class="lb-notice-text"><b>gtv小蓝</b> 2026 冬季「城市微光」创作季开启报名，首批 12 部高清原创短片已上线；创作者后台新增合集上传与 4K 转码预览。</span>
+      <a class="lb-notice-link" href="#lb-submit">查看报名细则</a>
+    </div>
+  </div>
+  <header class="lb-site-head">
+    <div class="lb-wrap lb-head-inner">
+      <a class="lb-brand" href="#lb-top" aria-label="gtv小蓝首页">
+        <span class="lb-brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#2fd2ff" stroke-width="2.4"/><path d="M13 11.4 L22 16 L13 20.6 Z" fill="#2fd2ff"/></svg>
+        </span>
+        <span>
+          <span class="lb-brand-name">gtv<em>小蓝</em></span>
+          <span class="lb-brand-sub">GTV XIAOLAN</span>
+        </span>
+      </a>
+      <nav class="lb-nav" id="lbNav" aria-label="主导航">
+        <a href="#lb-about">品牌解析</a>
+        <a href="#lb-focus">焦点内容</a>
+        <a href="#lb-videos">精品视频</a>
+        <a href="#lb-special">专题企划</a>
+        <a href="#lb-authors">创作者</a>
+        <a href="#lb-review">用户评价</a>
+        <a href="#lb-news">企业动态</a>
+        <a href="#lb-faq">帮助</a>
+      </nav>
+      <div class="lb-head-tools">
+        <div class="lb-search">
+          <input id="lbSearchInput" type="search" placeholder="搜索内容 / 创作者" aria-label="站内搜索">
+          <button type="button" id="lbSearchBtn">搜索</button>
+        </div>
+        <button class="lb-menu-btn" type="button" id="lbMenuBtn" aria-expanded="false" aria-controls="lbNav">菜单</button>
+      </div>
+    </div>
+    <div class="lb-wrap">
+      <p class="lb-search-feedback" id="lbSearchFeedback" role="status"></p>
+    </div>
+  </header>
+</div>
+
+<main id="lb-top">
+
+  <!-- ===== S2 首屏：左文右侧大图 + 数据条 ===== -->
+  <section class="lb-hero lb-anchor" aria-labelledby="lbHeroTitle">
+    <div class="lb-wrap lb-hero-grid">
+      <div class="lb-hero-copy">
+        <span class="lb-hero-badge"><i aria-hidden="true"></i>gtv小蓝 官方网站 · 品牌视频门户</span>
+        <h1 id="lbHeroTitle">gtv<span>小蓝</span></h1>
+        <p class="lb-hero-lead">用高清影像记录真实生活，让每一份创作被认真看见。这里是 gtv小蓝 官方发布的品牌首页，也是一个持续运营的原创视频社区。</p>
+        <p class="lb-hero-body">作为深耕生活影像与城市记录领域的视频品牌，gtv小蓝致力于为创作者与企业搭建高品质内容生态。<strong>我们坚持原创、正版与高清三条底线</strong>，以专业的内容运营能力，把散落在日常里的微小瞬间，整理成值得反复观看的精品内容。</p>
+        <div class="lb-hero-actions">
+          <a class="lb-btn lb-btn-primary" href="#lb-focus">进入焦点内容</a>
+          <a class="lb-btn lb-btn-ghost" href="#lb-submit">创作者投稿</a>
+          <a class="lb-btn lb-btn-ghost" href="#lb-about">了解品牌</a>
+        </div>
+        <div class="lb-hero-stats">
+          <div class="lb-stat">
+            <div class="lb-stat-num">1,860<small>+</small></div>
+            <div class="lb-stat-label">官方与签约创作者</div>
+          </div>
+          <div class="lb-stat">
+            <div class="lb-stat-num">4,200<small>部</small></div>
+            <div class="lb-stat-label">高清原创内容存量</div>
+          </div>
+          <div class="lb-stat">
+            <div class="lb-stat-num">98.6<small>%</small></div>
+            <div class="lb-stat-label">用户口碑好评率</div>
+          </div>
+        </div>
+      </div>
+      <div class="lb-hero-visual">
+        <figure class="lb-hero-frame">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 680'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231a4b73'/%3E%3Cstop offset='0.55' stop-color='%230e2c45'/%3E%3Cstop offset='1' stop-color='%23081724'/%3E%3C/linearGradient%3E%3ClinearGradient id='glow' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232fd2ff'/%3E%3Cstop offset='1' stop-color='%236ef0c9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='680' fill='url(%23sky)'/%3E%3Ccircle cx='600' cy='150' r='92' fill='%232fd2ff' opacity='0.18'/%3E%3Ccircle cx='600' cy='150' r='54' fill='%236ef0c9' opacity='0.3'/%3E%3Cpath d='M0 470 L120 400 L230 452 L340 372 L470 438 L590 380 L700 424 L800 392 L800 680 L0 680 Z' fill='%230c223a'/%3E%3Cpath d='M0 540 L120 486 L240 530 L370 462 L500 522 L630 470 L750 514 L800 496 L800 680 L0 680 Z' fill='%23091729'/%3E%3Cg opacity='0.85'%3E%3Crect x='96' y='286' width='14' height='184' fill='%2338cfff' opacity='0.55'/%3E%3Crect x='126' y='330' width='10' height='140' fill='%2338cfff' opacity='0.35'/%3E%3Crect x='676' y='312' width='12' height='160' fill='%236ef0c9' opacity='0.4'/%3E%3C/g%3E%3Cg%3E%3Crect x='300' y='520' width='200' height='4' rx='2' fill='url(%23glow)'/%3E%3Crect x='330' y='536' width='140' height='3' rx='1.5' fill='%239db5cc' opacity='0.5'/%3E%3C/g%3E%3Ccircle cx='399' cy='300' r='46' fill='none' stroke='%236ef0c9' stroke-width='3' opacity='0.85'/%3E%3Cpath d='M388 282 L418 300 L388 318 Z' fill='%236ef0c9'/%3E%3C/svg%3E" alt="gtv小蓝品牌首屏主视觉：夜幕下的城市天际线与播放标识" width="800" height="680">
+        </figure>
+        <div class="lb-hero-float">
+          <div class="lb-mini-tag">正在热映</div>
+          <p><b>《城市微光·凌晨四点的面馆》</b> 第 3 集上线，4K 高清，原创纪实。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S3 关键词解析 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-about" aria-labelledby="lbAboutTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Brand Insight</span>
+        <h2 class="lb-sec-title" id="lbAboutTitle">读懂 gtv小蓝：一个视频品牌的成长逻辑</h2>
+        <p class="lb-sec-desc">gtv小蓝不是单纯的内容聚合页，而是一套围绕“真实、高清、可持续”搭建的影像生产与分发体系。以下从品牌定位、内容方法与社区运营三个层面展开解析。</p>
+      </div>
+      <div class="lb-about-grid">
+        <div class="lb-prose">
+          <h3>品牌定位：做生活影像的长期主义者</h3>
+          <p>gtv小蓝 成立于一个短视频高速膨胀的年代，但我们选择了一条相对慢的路——把镜头对准普通人真实的生活现场，用更长的拍摄周期、更完整的叙事结构，去换取观众的信任。作为国内较早以“生活影像”为核心定位的视频品牌，gtv小蓝 官方网站 上线至今，始终坚持三项原则：内容原创、版权正版、画质高清。我们希望观众打开 gtv小蓝 时，看到的是被认真对待的画面，而不是被算法仓促推来的碎片。</p>
+          <p>品牌名中的“小蓝”，源自早期团队的一枚蓝色场记牌。那枚牌子上写着一句话：<strong>“先记录，再表达。”</strong> 这句话后来成为 gtv小蓝 的内容方法：不预设结论，不制造情绪，先把生活本来的样子拍下来，再通过剪辑、配乐与旁白，让它自然生长出意义。也正因如此，gtv小蓝 的内容生态里既有城市探索，也有手作、萌宠、旅行见闻与行业观察，题材多元，但气质统一。</p>
+          <h3>内容方法：以专题驱动，以品质取胜</h3>
+          <p>在内容组织上，gtv小蓝 采用“专题制”而非“流量制”。每一个季度，内容团队会与签约创作者一起确定 3 到 5 个专题方向，例如本季度的“城市微光”“手作日常”“深夜食单”。专题确定后，创作者按自己的节奏投稿，平台提供选题建议、拍摄脚本模板与后期支持。这种机制让内容生产更有计划性，也让观众形成稳定的观看期待。</p>
+          <p>为了保证品质，gtv小蓝 对上传内容设置了明确的画质与音质门槛：正片建议 1080P 以上，重点专题要求 4K；音频需经过基础降噪处理；片头片尾统一使用官方提供的品牌包装模板。这些要求看似琐碎，却是“专业”二字的具体落点。<strong>我们相信，品质不是一句口号，而是一整套可执行的标准。</strong> 目前平台内容存量超过 4200 部，其中 4K 内容占比达到 31%，在同类视频社区中处于行业领先水平。</p>
+          <h3>社区运营：让创作者被看见，让观众有参与感</h3>
+          <p>视频品牌的生命力来自社区。gtv小蓝 的创作者体系分为官方团队、签约创作者与社区创作者三个层级，不同层级对应不同的扶持方案：官方团队负责品牌级专题片，签约创作者享有选题优先权与设备补贴，社区创作者则可以通过投稿入口参与公开征集，优秀作品会被收录进官方合集并获得流量推荐。截至当前，平台已与 1860 余位创作者建立稳定合作，累计举办 27 场创作挑战赛。</p>
+          <p>在观众一侧，gtv小蓝 提供了点赞、收藏、评论、分享与评分等完整的互动工具，并定期公布热度榜、新人榜与口碑榜。我们希望社区是温暖的：评论区的第一条规则是“对作品说话，不对人下判断”。这种克制的社区氛围，让 gtv小蓝 的用户口碑长期保持在较高水平，也让不少创作者把这里当作自己的第一块正式舞台。</p>
+          <h3>企业责任与未来方向</h3>
+          <p>作为一个持续运营的视频企业，gtv小蓝 也关注影像之外的社会价值。我们每年拿出一定比例的资源，支持乡村记录、非遗手作与城市公共空间观察等公益影像项目，并免费开放部分拍摄与剪辑课程，帮助更多普通人掌握基础影像表达能力。未来一年，gtv小蓝 将重点投入三大方向：一是建设更完善的创作者成长体系，二是升级高清播放与多端适配体验，三是拓展线下放映与城市共创活动，让线上内容与线下社区形成合力。</p>
+          <p>我们并不追求成为最大的视频平台，而是希望成为<strong>用户首选的生活影像品牌</strong>——当你想认真记录一段生活，或者想安静看完一部有质感的短片时，会想起 gtv小蓝。这是我们的目标，也是我们愿意用很长时间去兑现的承诺。</p>
+        </div>
+        <aside class="lb-about-side">
+          <div class="lb-side-card">
+            <h3>品牌关键词</h3>
+            <ul class="lb-check-list">
+              <li>官方网站 · 官方发布</li>
+              <li>原创正版 · 高清画质</li>
+              <li>专业运营 · 品质口碑</li>
+              <li>创作者社区 · 内容生态</li>
+              <li>深耕生活影像垂直领域</li>
+            </ul>
+          </div>
+          <div class="lb-side-card">
+            <h3>一句话理念</h3>
+            <p class="lb-side-quote">“把镜头放低一点，把时间留长一点。gtv小蓝 相信，真实本身就有力量。”</p>
+          </div>
+          <div class="lb-side-card">
+            <h3>核心数据</h3>
+            <ul class="lb-check-list">
+              <li>累计举办 27 场创作挑战赛</li>
+              <li>4K 高清内容占比 31%</li>
+              <li>签约创作者覆盖 24 个城市</li>
+              <li>年度公益影像项目 6 个</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S3 焦点内容：一幅重点大图 + 文字列表 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-focus" aria-labelledby="lbFocusTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Focus</span>
+        <h2 class="lb-sec-title" id="lbFocusTitle">焦点内容：本周 gtv小蓝 编辑推荐</h2>
+        <p class="lb-sec-desc">由内容编辑与社区口碑共同选出，覆盖城市探索、手作日常与人物访谈。点击条目可展开互动，点赞与收藏会即时记录你的偏好。</p>
+      </div>
+      <div class="lb-focus-grid">
+        <article class="lb-focus-main">
+          <div class="lb-focus-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='n1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230d2a44'/%3E%3Cstop offset='1' stop-color='%231a4f6e'/%3E%3C/linearGradient%3E%3ClinearGradient id='n2' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23ffb84d'/%3E%3Cstop offset='1' stop-color='%23ff7d5c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23n1)'/%3E%3Cg opacity='0.5'%3E%3Crect x='60' y='90' width='120' height='250' fill='%230b2036'/%3E%3Crect x='200' y='140' width='90' height='200' fill='%23102b45'/%3E%3Crect x='310' y='80' width='140' height='260' fill='%230b2036'/%3E%3Crect x='470' y='160' width='100' height='180' fill='%23102b45'/%3E%3Crect x='590' y='110' width='130' height='230' fill='%230b2036'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='400' cy='300' r='70' fill='url(%23n2)' opacity='0.28'/%3E%3Crect x='330' y='300' width='140' height='8' rx='4' fill='%23ffb84d'/%3E%3Crect x='290' y='322' width='220' height='5' rx='2.5' fill='%23ffe0b0' opacity='0.6'/%3E%3C/g%3E%3Cg opacity='0.7'%3E%3Ccircle cx='180' cy='140' r='3' fill='%236ef0c9'/%3E%3Ccircle cx='640' cy='190' r='3' fill='%23ffb84d'/%3E%3Ccircle cx='520' cy='120' r='2.5' fill='%232fd2ff'/%3E%3C/g%3E%3C/svg%3E" alt="焦点内容《城市微光·凌晨四点的面馆》封面：夜色街巷与暖色灯光" width="800" height="450">
+            <div class="lb-play-badge" aria-hidden="true"><span></span></div>
+          </div>
+          <div class="lb-focus-body">
+            <div class="lb-tag-row">
+              <span class="lb-tag">城市探索</span>
+              <span class="lb-tag is-warm">4K 高清</span>
+              <span class="lb-tag">原创纪实</span>
+            </div>
+            <h3>《城市微光·凌晨四点的面馆》：一碗面背后的十年守夜人</h3>
+            <p>摄制组跟拍 11 天，记录一家深夜面馆从备料到收摊的完整作息。老板阿德说，最难的不是熬夜，是记住每位客人的口味。gtv小蓝 用长镜头保留了下锅、捞面、撒葱的每个细节，也保留了城市凌晨最柔软的一部分。</p>
+            <div class="lb-meta">
+              <span>导演 <b>林见野</b></span>
+              <span>时长 <b>18:42</b></span>
+              <span>播放 <b data-lb-count="128400">12.8万</b></span>
+              <span>点赞 <b data-lb-count="9420">9420</b></span>
+              <span>收藏 <b data-lb-count="3180">3180</b></span>
+            </div>
+            <div class="lb-hero-actions" style="margin-top:16px;">
+              <button class="lb-icon-btn" type="button" data-lb-action="like">♡ 点赞</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="save">☆ 收藏</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="copy">复制链接</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="share">分享</button>
+            </div>
+          </div>
+        </article>
+        <div class="lb-list" aria-label="编辑推荐文字列表">
+          <article class="lb-list-item">
+            <span class="lb-rank">01</span>
+            <div>
+              <h4>《手作日常·一只木碗的七十二小时》</h4>
+              <p>从选料到上油，完整记录木作全流程；含刀具使用安全提示与新手避坑清单。</p>
+              <div class="lb-meta" style="margin-top:8px;padding-top:0;border:0;">
+                <span>作者 木下三</span><span>播放 6.4万</span><span>评分 9.4</span>
+              </div>
+            </div>
+            <div class="lb-list-actions">
+              <button class="lb-icon-btn" type="button" data-lb-action="like">♡ 点赞</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="save">☆ 收藏</button>
+            </div>
+          </article>
+          <article class="lb-list-item">
+            <span class="lb-rank">02</span>
+            <div>
+              <h4>《人物访谈｜拍了一百位陌生人的摄影师》</h4>
+              <p>四十分钟深度访谈，聊街头摄影的伦理边界、肖像授权与创作者的收入结构。</p>
+              <div class="lb-meta" style="margin-top:8px;padding-top:0;border:0;">
+                <span>作者 迟野</span><span>播放 5.1万</span><span>评分 9.2</span>
+              </div>
+            </div>
+            <div class="lb-list-actions">
+              <button class="lb-icon-btn" type="button" data-lb-action="like">♡ 点赞</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="save">☆ 收藏</button>
+            </div>
+          </article>
+          <article class="lb-list-item">
+            <span class="lb-rank">03</span>
+            <div>
+              <h4>《治愈影像·雨天适合整理书架》</h4>
+              <p>无旁白的环境声短片，收录雨声、翻页声与纸张摩擦声，适合作为学习背景。</p>
+              <div class="lb-meta" style="margin-top:8px;padding-top:0;border:0;">
+                <span>作者 小满的记录</span><span>播放 9.7万</span><span>评分 9.0</span>
+              </div>
+            </div>
+            <div class="lb-list-actions">
+              <button class="lb-icon-btn" type="button" data-lb-action="like">♡ 点赞</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="save">☆ 收藏</button>
+            </div>
+          </article>
+          <article class="lb-list-item">
+            <span class="lb-rank">04</span>
+            <div>
+              <h4>《教程干货·手机也能拍出稳定的跟拍镜头》</h4>
+              <p>三种低成本稳定方案，含参数对照表与常见失误分解，适合入门创作者。</p>
+              <div class="lb-meta" style="margin-top:8px;padding-top:0;border:0;">
+                <span>作者 半格快门</span><span>播放 7.3万</span><span>评分 9.1</span>
+              </div>
+            </div>
+            <div class="lb-list-actions">
+              <button class="lb-icon-btn" type="button" data-lb-action="like">♡ 点赞</button>
+              <button class="lb-icon-btn" type="button" data-lb-action="save">☆ 收藏</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S3 精品视频：三列等高卡片 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-videos" aria-labelledby="lbVideoTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Originals</span>
+        <h2 class="lb-sec-title" id="lbVideoTitle">精品视频：来自社区的真实记录</h2>
+        <p class="lb-sec-desc">以下六部作品均由 gtv小蓝 创作者上传并通过内容审核，涵盖美食烹饪、萌宠日常、旅行见闻与知识科普等方向。</p>
+      </div>
+      <div class="lb-card-grid">
+        <article class="lb-vcard">
+          <div class="lb-vcard-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a2418'/%3E%3Cstop offset='1' stop-color='%236e4426'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23f1)'/%3E%3Ccircle cx='240' cy='150' r='72' fill='%23f5d9a8' opacity='0.2'/%3E%3Ccircle cx='240' cy='150' r='52' fill='none' stroke='%23ffd27d' stroke-width='3' opacity='0.7'/%3E%3Cpath d='M210 130 Q240 100 270 130' stroke='%23ffe6b8' stroke-width='4' fill='none' opacity='0.8'/%3E%3Crect x='150' y='205' width='180' height='4' rx='2' fill='%23ffd27d' opacity='0.5'/%3E%3C/svg%3E" alt="美食烹饪视频《深夜食单：一碗热汤面的三种做法》封面" width="480" height="270">
+          </div>
+          <div class="lb-vcard-body">
+            <div class="lb-tag-row"><span class="lb-tag">美食烹饪</span><span class="lb-tag is-warm">教程</span></div>
+            <h3>深夜食单：一碗热汤面的三种做法</h3>
+            <p>清汤、番茄、酸辣三种底汤一次讲清，附家庭灶具火候对照表。适合下班后二十分钟内完成。</p>
+            <div class="lb-vcard-foot">
+              <span class="lb-author-chip"><span class="lb-ava">厨</span>厨房有事</span>
+              <span>播放 8.9万 · 赞 6.2千</span>
+            </div>
+          </div>
+        </article>
+        <article class="lb-vcard">
+          <div class="lb-vcard-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='f2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231c3a2e'/%3E%3Cstop offset='1' stop-color='%232f6b52'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23f2)'/%3E%3Cellipse cx='240' cy='200' rx='86' ry='24' fill='%230e2419' opacity='0.7'/%3E%3Ccircle cx='240' cy='146' r='46' fill='%23ffe2a8' opacity='0.85'/%3E%3Ccircle cx='224' cy='140' r='6' fill='%232b2b2b'/%3E%3Ccircle cx='258' cy='140' r='6' fill='%232b2b2b'/%3E%3Cpath d='M230 160 Q240 170 250 160' stroke='%232b2b2b' stroke-width='3' fill='none'/%3E%3Cpath d='M206 104 L186 74 M274 104 L294 74' stroke='%23ffe2a8' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M240 60 L240 92' stroke='%236ef0c9' stroke-width='3' opacity='0.6'/%3E%3C/svg%3E" alt="萌宠日常视频《猫的一天：从六点到六点》封面" width="480" height="270">
+          </div>
+          <div class="lb-vcard-body">
+            <div class="lb-tag-row"><span class="lb-tag">萌宠日常</span><span class="lb-tag">治愈影像</span></div>
+            <h3>猫的一天：从六点到六点</h3>
+            <p>固定机位拍满十二小时，剪成八分钟。没有旁白，只有猫、阳光和屋檐下的风声。</p>
+            <div class="lb-vcard-foot">
+              <span class="lb-author-chip"><span class="lb-ava lb-ava-d">猫</span>三花观察员</span>
+              <span>播放 12.1万 · 赞 1.1万</span>
+            </div>
+          </div>
+        </article>
+        <article class="lb-vcard">
+          <div class="lb-vcard-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='f3' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233a5f88'/%3E%3Cstop offset='1' stop-color='%23a9c8de'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23f3)'/%3E%3Cpath d='M0 190 L90 130 L170 168 L260 108 L350 158 L430 120 L480 146 L480 270 L0 270 Z' fill='%232b4a66'/%3E%3Cpath d='M0 220 L110 176 L210 208 L310 164 L400 200 L480 172 L480 270 L0 270 Z' fill='%23182f45'/%3E%3Ccircle cx='372' cy='70' r='26' fill='%23fff6d8' opacity='0.85'/%3E%3C/svg%3E" alt="旅行见闻视频《一个人去山里住了三天》封面" width="480" height="270">
+          </div>
+          <div class="lb-vcard-body">
+            <div class="lb-tag-row"><span class="lb-tag">旅行见闻</span><span class="lb-tag">户外活动</span></div>
+            <h3>一个人去山里住了三天</h3>
+            <p>徒步十公里进山，记录无信号状态下的日常：生火、取水、看云。附装备清单与预算。</p>
+            <div class="lb-vcard-foot">
+              <span class="lb-author-chip"><span class="lb-ava lb-ava-c">野</span>迟野</span>
+              <span>播放 7.6万 · 赞 5.4千</span>
+            </div>
+          </div>
+        </article>
+        <article class="lb-vcard">
+          <div class="lb-vcard-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='f4' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%232b2140'/%3E%3Cstop offset='1' stop-color='%2350447a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23f4)'/%3E%3Cg stroke='%23b28bff' stroke-width='2' opacity='0.75' fill='none'%3E%3Crect x='70' y='60' width='120' height='80' rx='6'/%3E%3Crect x='220' y='110' width='90' height='110' rx='6'/%3E%3Crect x='340' y='70' width='80' height='66' rx='6'/%3E%3C/g%3E%3Cg fill='%236ef0c9' opacity='0.8'%3E%3Ccircle cx='100' cy='200' r='4'/%3E%3Ccircle cx='130' cy='200' r='4'/%3E%3Ccircle cx='160' cy='200' r='4'/%3E%3C/g%3E%3C/svg%3E" alt="科技前沿视频《剪辑工作流的五个提效插件》封面" width="480" height="270">
+          </div>
+          <div class="lb-vcard-body">
+            <div class="lb-tag-row"><span class="lb-tag">科技前沿</span><span class="lb-tag">教程干货</span></div>
+            <h3>剪辑工作流的五个提效插件</h3>
+            <p>从素材整理到导出压制，逐一演示五个常用工具，附对比测试与踩坑记录。</p>
+            <div class="lb-vcard-foot">
+              <span class="lb-author-chip"><span class="lb-ava lb-ava-b">格</span>半格快门</span>
+              <span>播放 5.8万 · 赞 4.7千</span>
+            </div>
+          </div>
+        </article>
+        <article class="lb-vcard">
+          <div class="lb-vcard-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='f5' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2355362b'/%3E%3Cstop offset='1' stop-color='%23a5794f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23f5)'/%3E%3Cpath d='M120 210 L120 120 Q240 60 360 120 L360 210 Z' fill='%23e8c79c' opacity='0.22'/%3E%3Cpath d='M150 200 Q240 150 330 200' stroke='%23ffe6b8' stroke-width='3' fill='none' opacity='0.8'/%3E%3Ccircle cx='240' cy='128' r='30' fill='%23ffd27d' opacity='0.5'/%3E%3Cg stroke='%23e8c79c' stroke-width='2' opacity='0.5'%3E%3Cpath d='M100 240 L380 240'/%3E%3Cpath d='M100 250 L380 250'/%3E%3C/g%3E%3C/svg%3E" alt="手作DIY视频《一只木碗的七十二小时》封面" width="480" height="270">
+          </div>
+          <div class="lb-vcard-body">
+            <div class="lb-tag-row"><span class="lb-tag">手作DIY</span><span class="lb-tag">创作幕后</span></div>
+            <h3>一只木碗的七十二小时</h3>
+            <p>选料、开坯、挖膛、打磨、上油，五道工序完整呈现。含新手工具清单与安全提示。</p>
+            <div class="lb-vcard-foot">
+              <span class="lb-author-chip"><span class="lb-ava lb-ava-e">木</span>木下三</span>
+              <span>播放 6.4万 · 赞 5.9千</span>
+            </div>
+          </div>
+        </article>
+        <article class="lb-vcard">
+          <div class="lb-vcard-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='f6' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231d2b3a'/%3E%3Cstop offset='1' stop-color='%233d5a72'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23f6)'/%3E%3Cg opacity='0.75'%3E%3Crect x='60' y='150' width='60' height='80' fill='%23233b52'/%3E%3Crect x='140' y='120' width='70' height='110' fill='%231b2f42'/%3E%3Crect x='230' y='160' width='80' height='70' fill='%23233b52'/%3E%3Crect x='330' y='110' width='90' height='120' fill='%231b2f42'/%3E%3C/g%3E%3Cg fill='%23ffb84d' opacity='0.85'%3E%3Crect x='80' y='180' width='8' height='8'/%3E%3Crect x='160' y='150' width='8' height='8'/%3E%3Crect x='255' y='185' width='8' height='8'/%3E%3Crect x='360' y='140' width='8' height='8'/%3E%3C/g%3E%3Ccircle cx='400' cy='60' r='40' fill='%232fd2ff' opacity='0.25'/%3E%3C/svg%3E" alt="城市探索视频《夜班公交的最后一站》封面" width="480" height="270">
+          </div>
+          <div class="lb-vcard-body">
+            <div class="lb-tag-row"><span class="lb-tag">城市探索</span><span class="lb-tag">在地文化</span></div>
+            <h3>夜班公交的最后一站</h3>
+            <p>跟车拍摄七小时，采访司机、代驾与夜班护士。一座城市的睡眠时间表。</p>
+            <div class="lb-vcard-foot">
+              <span class="lb-author-chip"><span class="lb-ava">见</span>林见野</span>
+              <span>播放 9.2万 · 赞 8.1千</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S4 专题企划 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-special" aria-labelledby="lbSpecialTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Programs</span>
+        <h2 class="lb-sec-title" id="lbSpecialTitle">专题企划：gtv小蓝 正在持续更新</h2>
+        <p class="lb-sec-desc">专题是 gtv小蓝 组织内容的基本单位。每个专题由编辑与创作者共同策划，包含若干条内容条目，并保持稳定更新节奏。</p>
+      </div>
+      <div class="lb-special-grid">
+        <article class="lb-special">
+          <div class="lb-special-media">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 300'%3E%3Cdefs%3E%3ClinearGradient id='s1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230d3148'/%3E%3Cstop offset='1' stop-color='%23155c74'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='300' fill='url(%23s1)'/%3E%3Cg fill='%23ffb84d' opacity='0.8'%3E%3Ccircle cx='120' cy='110' r='10'/%3E%3Ccircle cx='240' cy='160' r='7'/%3E%3Ccircle cx='350' cy='100' r='12'/%3E%3Ccircle cx='400' cy='210' r='6'/%3E%3C/g%3E%3Cg stroke='%232fd2ff' stroke-width='2' opacity='0.5' fill='none'%3E%3Cpath d='M120 110 L240 160 L350 100'/%3E%3Cpath d='M240 160 L400 210'/%3E%3C/g%3E%3Crect x='0' y='250' width='480' height='50' fill='%23091a28' opacity='0.7'/%3E%3C/svg%3E" alt="专题企划「城市微光」视觉图：城市灯光连线" width="480" height="300">
+          </div>
+          <div>
+            <span class="lb-spec-status"><i aria-hidden="true"></i>更新中 · 已上线 6 条</span>
+            <h3>城市微光：拍下城市入睡前的最后半小时</h3>
+            <p>聚焦夜间工作者与深夜场景的纪实专题。拍摄对象包括夜班司机、便利店店员、急诊护士与通宵自习的学生。</p>
+            <ul class="lb-spec-items">
+              <li>《凌晨四点的面馆》第 3 集 · 已上线</li>
+              <li>《最后一班地铁的清洁工》 · 已上线</li>
+              <li>《便利店夜班手记》 · 本周五更新</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lb-special">
+          <div class="lb-special-media">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 300'%3E%3Cdefs%3E%3ClinearGradient id='s2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233d2f22'/%3E%3Cstop offset='1' stop-color='%23805e3e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='300' fill='url(%23s2)'/%3E%3Cg fill='none' stroke='%23ffe0b0' stroke-width='3' opacity='0.7'%3E%3Ccircle cx='150' cy='150' r='52'/%3E%3Ccircle cx='330' cy='150' r='52'/%3E%3C/g%3E%3Cpath d='M150 150 L330 150' stroke='%23ffd27d' stroke-width='3' stroke-dasharray='6 8' opacity='0.8'/%3E%3Crect x='210' y='120' width='60' height='60' rx='8' fill='%23e8c79c' opacity='0.25'/%3E%3C/svg%3E" alt="专题企划「手作日常」视觉图：工具与圆形构图" width="480" height="300">
+          </div>
+          <div>
+            <span class="lb-spec-status"><i aria-hidden="true"></i>更新中 · 已上线 4 条</span>
+            <h3>手作日常：慢工出细活的四门手艺</h3>
+            <p>木作、陶艺、织补与制笔，四位手艺人各自讲述材料、工具与时间的相处方式，每集附新手入门清单。</p>
+            <ul class="lb-spec-items">
+              <li>《一只木碗的七十二小时》 · 已上线</li>
+              <li>《拉坯失败三十次之后》 · 已上线</li>
+              <li>《把旧毛衣补成新的》 · 下周更新</li>
+            </ul>
+          </div>
+        </article>
+        <article class="lb-special">
+          <div class="lb-special-media">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 300'%3E%3Cdefs%3E%3ClinearGradient id='s3' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231a4038'/%3E%3Cstop offset='1' stop-color='%232f6b52'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='300' fill='url(%23s3)'/%3E%3Cpath d='M0 220 L120 160 L230 200 L340 140 L480 190 L480 300 L0 300 Z' fill='%23122e24'/%3E%3Cg fill='%236ef0c9' opacity='0.7'%3E%3Cpath d='M180 140 L188 118 L196 140 Z'/%3E%3Cpath d='M196 140 L204 112 L212 140 Z'/%3E%3Cpath d='M212 140 L220 122 L228 140 Z'/%3E%3C/g%3E%3Ccircle cx='380' cy='80' r='30' fill='%23ffe9b0' opacity='0.7'/%3E%3C/svg%3E" alt="专题企划「深夜食单」视觉图：山林与夜色" width="480" height="300">
+          </div>
+          <div>
+            <span class="lb-spec-status"><i aria-hidden="true"></i>即将开启 · 报名中</span>
+            <h3>深夜食单：为夜归人做一顿饭</h3>
+            <p>面向社区创作者的公开征集专题。记录你所在城市夜里仍亮着灯的小店，或为家人做的一顿宵夜。</p>
+            <ul class="lb-spec-items">
+              <li>《一碗热汤面的三种做法》 · 已上线</li>
+              <li>征集通道开放至 12 月 20 日</li>
+              <li>入选作品将获官方首页推荐</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S5 创作者矩阵：双列简介 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-authors" aria-labelledby="lbAuthorTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Creators</span>
+        <h2 class="lb-sec-title" id="lbAuthorTitle">创作者矩阵：gtv小蓝 的内容合伙人</h2>
+        <p class="lb-sec-desc">他们来自不同城市、不同职业，但共享同一种耐心。点击“作者档案”可查看完整介绍与作品清单。</p>
+      </div>
+      <div class="lb-author-grid">
+        <article class="lb-author">
+          <span class="lb-ava lb-ava-c" aria-hidden="true">林</span>
+          <div>
+            <h3>林见野 <span class="lb-role">官方导演</span></h3>
+            <p>纪录片导演，长期跟拍城市夜间职业群体。习惯用长镜头等待真实发生，作品节奏克制、信息密度高。曾主导 gtv小蓝「城市微光」系列全部拍摄。</p>
+            <div class="lb-author-stats"><span>作品 <b>42</b></span><span>粉丝 <b>18.6万</b></span><span>擅长 城市探索</span></div>
+            <button class="lb-author-btn" type="button" data-lb-action="author" data-author="林见野">作者档案</button>
+          </div>
+        </article>
+        <article class="lb-author">
+          <span class="lb-ava" aria-hidden="true">厨</span>
+          <div>
+            <h3>厨房有事 <span class="lb-role">签约创作者</span></h3>
+            <p>前餐厅主厨，现专注家庭厨房内容。擅长把专业火候翻译成家用灶具能执行的语言，视频里常见对照表与失败案例复盘，被观众称为“最不藏私的厨房号”。</p>
+            <div class="lb-author-stats"><span>作品 <b>88</b></span><span>粉丝 <b>23.4万</b></span><span>擅长 美食烹饪</span></div>
+            <button class="lb-author-btn" type="button" data-lb-action="author" data-author="厨房有事">作者档案</button>
+          </div>
+        </article>
+        <article class="lb-author">
+          <span class="lb-ava lb-ava-b" aria-hidden="true">格</span>
+          <div>
+            <h3>半格快门 <span class="lb-role">签约创作者</span></h3>
+            <p>影像技术博主，主攻低成本拍摄方案与后期工作流。每条教程都会给出参数表与预算区间，并公开自己的失败素材，帮助入门创作者少走弯路。</p>
+            <div class="lb-author-stats"><span>作品 <b>64</b></span><span>粉丝 <b>15.2万</b></span><span>擅长 教程干货</span></div>
+            <button class="lb-author-btn" type="button" data-lb-action="author" data-author="半格快门">作者档案</button>
+          </div>
+        </article>
+        <article class="lb-author">
+          <span class="lb-ava lb-ava-d" aria-hidden="true">猫</span>
+          <div>
+            <h3>三花观察员 <span class="lb-role">社区创作者</span></h3>
+            <p>自由职业者，家里有两只三花猫。坚持固定机位、无旁白的观察式拍摄，用环境声与光影记录动物的日常节奏，作品被大量观众当作放松背景。</p>
+            <div class="lb-author-stats"><span>作品 <b>37</b></span><span>粉丝 <b>11.8万</b></span><span>擅长 萌宠日常</span></div>
+            <button class="lb-author-btn" type="button" data-lb-action="author" data-author="三花观察员">作者档案</button>
+          </div>
+        </article>
+        <article class="lb-author">
+          <span class="lb-ava lb-ava-e" aria-hidden="true">木</span>
+          <div>
+            <h3>木下三 <span class="lb-role">签约创作者</span></h3>
+            <p>独立木作人，工作室开在城郊。视频里保留大量手工过程的原始声音，也坦言材料浪费与返工成本。希望让更多人理解手作的真实价格。</p>
+            <div class="lb-author-stats"><span>作品 <b>29</b></span><span>粉丝 <b>7.3万</b></span><span>擅长 手作DIY</span></div>
+            <button class="lb-author-btn" type="button" data-lb-action="author" data-author="木下三">作者档案</button>
+          </div>
+        </article>
+        <article class="lb-author">
+          <span class="lb-ava lb-ava-c" aria-hidden="true">野</span>
+          <div>
+            <h3>迟野 <span class="lb-role">签约创作者</span></h3>
+            <p>户外内容作者，偏爱独自出行与轻量装备。擅长把复杂路线拆成可执行的分段计划，视频中会标注补给点、撤退路线与天气风险，强调安全第一。</p>
+            <div class="lb-author-stats"><span>作品 <b>51</b></span><span>粉丝 <b>13.6万</b></span><span>擅长 户外活动</span></div>
+            <button class="lb-author-btn" type="button" data-lb-action="author" data-author="迟野">作者档案</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S6 评分摘要 + 双列短评 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-review" aria-labelledby="lbReviewTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Voices</span>
+        <h2 class="lb-sec-title" id="lbReviewTitle">用户评价：来自 gtv小蓝 社区的真实反馈</h2>
+        <p class="lb-sec-desc">评分数据来自站内用户主动评价，每月更新一次。我们保留不同意见，因为口碑需要经得起检验。</p>
+      </div>
+      <div class="lb-review-layout">
+        <div class="lb-score">
+          <div class="lb-score-num">9.4<small>/10</small></div>
+          <div class="lb-score-stars" aria-hidden="true">★★★★★</div>
+          <p>基于 6,284 条有效评价</p>
+          <div class="lb-score-bars">
+            <div class="lb-bar-row"><span>画质</span><div class="lb-bar"><i style="width:96%"></i></div><span>9.6</span></div>
+            <div class="lb-bar-row"><span>内容</span><div class="lb-bar"><i style="width:93%"></i></div><span>9.3</span></div>
+            <div class="lb-bar-row"><span>社区</span><div class="lb-bar"><i style="width:91%"></i></div><span>9.1</span></div>
+            <div class="lb-bar-row"><span>体验</span><div class="lb-bar"><i style="width:94%"></i></div><span>9.4</span></div>
+          </div>
+        </div>
+        <div class="lb-review-grid">
+          <article class="lb-review">
+            <div class="lb-review-top"><span class="lb-ava lb-ava-b">周</span><b>周舟</b><span>2026-11-18</span></div>
+            <div class="lb-stars" aria-hidden="true">★★★★★</div>
+            <p>追「城市微光」追了三个月，最打动我的是它不急着给结论。面馆老板擦桌子的那三十秒，比很多煽情旁白都有力量。</p>
+          </article>
+          <article class="lb-review">
+            <div class="lb-review-top"><span class="lb-ava">阿</span><b>阿岚</b><span>2026-11-15</span></div>
+            <div class="lb-stars" aria-hidden="true">★★★★☆</div>
+            <p>教程是真的干，参数表直接截图就能用。唯一希望搜索能再准一点，有时候搜关键词出来的结果偏多，需要翻一翻。</p>
+          </article>
+          <article class="lb-review">
+            <div class="lb-review-top"><span class="lb-ava lb-ava-d">陈</span><b>陈默</b><span>2026-11-11</span></div>
+            <div class="lb-stars" aria-hidden="true">★★★★★</div>
+            <p>作为一个小创作者，第一次投稿就被编辑回复了修改建议，很意外。这里对新人友好吧，至少不会石沉大海。</p>
+          </article>
+          <article class="lb-review">
+            <div class="lb-review-top"><span class="lb-ava lb-ava-e">琪</span><b>琪琪</b><span>2026-11-08</span></div>
+            <div class="lb-stars" aria-hidden="true">★★★★★</div>
+            <p>睡前看猫的一天，已经成了固定节目。没有音乐没有解说，就是风声和猫，看着看着就放松了，比白噪音管用。</p>
+          </article>
+          <article class="lb-review">
+            <div class="lb-review-top"><span class="lb-ava lb-ava-c">老</span><b>老周</b><span>2026-11-03</span></div>
+            <div class="lb-stars" aria-hidden="true">★★★★☆</div>
+            <p>手作那几集看得很舒服，能看见失败和返工，不像有些片子只拍成功。不过希望能多讲讲材料成本，会更完整。</p>
+          </article>
+          <article class="lb-review">
+            <div class="lb-review-top"><span class="lb-ava lb-ava-b">何</span><b>何一</b><span>2026-10-29</span></div>
+            <div class="lb-stars" aria-hidden="true">★★★★★</div>
+            <p>4K 播放很稳，投屏也不卡。最喜欢的是合集功能，能一整个专题连着看完，不用自己一部部找。</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S7 企业动态 ===== -->
+  <section class="lb-sec lb-anchor" id="lb-news" aria-labelledby="lbNewsTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Updates</span>
+        <h2 class="lb-sec-title" id="lbNewsTitle">企业动态：gtv小蓝 官方发布</h2>
+        <p class="lb-sec-desc">品牌资讯、产品更新与活动公告，均以官方发布为准。</p>
+      </div>
+      <div class="lb-news-grid">
+        <article class="lb-news">
+          <time datetime="2026-11-20">2026-11-20</time>
+          <h3>创作者后台支持合集上传与 4K 转码预览</h3>
+          <p>新增合集管理、章节标记与 4K 转码进度预览，上传后可先行审看画质表现，减少重复上传成本。</p>
+        </article>
+        <article class="lb-news">
+          <time datetime="2026-11-14">2026-11-14</time>
+          <h3>「城市微光」冬季创作季开放报名</h3>
+          <p>面向社区创作者公开征集，入选作品将进入官方专题并获得首页推荐与后期支持，报名截止 12 月 20 日。</p>
+        </article>
+        <article class="lb-news">
+          <time datetime="2026-11-06">2026-11-06</time>
+          <h3>社区评论规范更新，强调对作品说话</h3>
+          <p>新版社区规范细化评论礼仪与举报处理流程，同时上线“优质评论”标识，鼓励有信息量的讨论。</p>
+        </article>
+      </div>
+      <div class="lb-submit-band" id="lb-submit">
+        <div>
+          <h2>把你的记录交给 gtv小蓝</h2>
+          <p>无论是一部完整短片，还是一段未经剪辑的生活素材，我们都愿意认真看完。投稿后可获得编辑反馈，优质作品将进入官方专题与合集。</p>
+        </div>
+        <div class="lb-submit-actions">
+          <button class="lb-btn lb-btn-primary" type="button" data-lb-action="submit">立即投稿</button>
+          <button class="lb-btn lb-btn-ghost" type="button" data-lb-action="share">分享给朋友</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S7 合作墙 + FAQ ===== -->
+  <section class="lb-sec lb-anchor" id="lb-faq" aria-labelledby="lbFaqTitle">
+    <div class="lb-wrap">
+      <div class="lb-sec-head">
+        <span class="lb-eyebrow">Support</span>
+        <h2 class="lb-sec-title" id="lbFaqTitle">帮助中心与合作伙伴</h2>
+        <p class="lb-sec-desc">关于投稿、画质要求、版权与社区规则的常见问题，都在这里。若仍有疑问，可通过投稿弹窗留下联系方式。</p>
+      </div>
+      <div class="lb-faq-grid">
+        <details class="lb-faq">
+          <summary>投稿需要满足哪些画质要求？</summary>
+          <p>正片建议 1080P 及以上，重点专题要求 4K；音频需经基础降噪处理；片头片尾可使用官方提供的品牌包装模板。低于要求的作品仍可上传，但不会进入首页推荐。</p>
+        </details>
+        <details class="lb-faq">
+          <summary>我的作品版权归谁所有？</summary>
+          <p>作品版权始终归创作者所有。gtv小蓝 仅在你授权的范围内进行展示、推荐与专题收录，未经同意不会用于商业广告或转授权第三方。</p>
+        </details>
+        <details class="lb-faq">
+          <summary>审核一般需要多久？</summary>
+          <p>常规审核在 1 至 3 个工作日内完成。遇专题征集期稿件量较大，可能延长至 5 个工作日，审核结果会通过站内通知告知。</p>
+        </details>
+        <details class="lb-faq">
+          <summary>如何参与专题征集？</summary>
+          <p>进入投稿入口后选择对应专题标签，填写作品简介与拍摄说明即可。入选作品将进入官方专题页，并获得首页曝光与后期支持。</p>
+        </details>
+        <details class="lb-faq">
+          <summary>为什么我的评论没有显示？</summary>
+          <p>评论需经过基础审核，包含人身攻击、广告导流或与作品无关的内容将被折叠。我们鼓励针对作品本身的具体讨论。</p>
+        </details>
+        <details class="lb-faq">
+          <summary>可以下载社区内的视频吗？</summary>
+          <p>仅提供创作者主动开放下载的作品，且需遵守授权说明。未开放下载的内容不支持保存，请尊重原创与正版。</p>
+        </details>
+      </div>
+      <div class="lb-partner-grid" style="margin-top:22px;">
+        <div class="lb-partner">城市影像档案馆<small>内容共建伙伴</small></div>
+        <div class="lb-partner">木与陶手作联盟<small>专题合作方</small></div>
+        <div class="lb-partner">青野户外俱乐部<small>活动支持</small></div>
+        <div class="lb-partner">静水书店<small>线下放映空间</small></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== S8 页脚 ===== -->
+<footer class="lb-footer">
+  <div class="lb-wrap">
+    <div class="lb-foot-grid">
+      <div class="lb-foot-brand">
+        <a class="lb-brand" href="#lb-top">
+          <span class="lb-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#2fd2ff" stroke-width="2.4"/><path d="M13 11.4 L22 16 L13 20.6 Z" fill="#2fd2ff"/></svg>
+          </span>
+          <span>
+            <span class="lb-brand-name">gtv<em>小蓝</em></span>
+            <span class="lb-brand-sub">GTV XIAOLAN</span>
+          </span>
+        </a>
+        <p>gtv小蓝 官方网站，专注高清原创生活影像的内容品牌与视频社区。我们以专业的内容运营、持续的社区建设与对原创正版的坚持，为创作者与企业搭建值得信赖的内容生态。</p>
+      </div>
+      <div class="lb-foot-col">
+        <h3>内容</h3>
+        <ul>
+          <li><a href="#lb-focus">焦点内容</a></li>
+          <li><a href="#lb-videos">精品视频</a></li>
+          <li><a href="#lb-special">专题企划</a></li>
+          <li><a href="#lb-authors">创作者矩阵</a></li>
+        </ul>
+      </div>
+      <div class="lb-foot-col">
+        <h3>关于</h3>
+        <ul>
+          <li><a href="#lb-about">品牌解析</a></li>
+          <li><a href="#lb-news">企业动态</a></li>
+          <li><a href="#lb-review">用户评价</a></li>
+          <li><a href="#lb-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div class="lb-foot-col">
+        <h3>合作</h3>
+        <ul>
+          <li><a href="#lb-submit">创作者投稿</a></li>
+          <li><a href="#lb-faq">版权说明</a></li>
+          <li><a href="#lb-faq">社区规范</a></li>
+          <li><a href="#lb-faq">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-foot-bottom">
+      <span>© 2026 gtv小蓝 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容均为原创或获授权，转载请注明出处 · 备案号：影像备 2026-1147 号</span>
+    </div>
+  </div>
+</footer>
+
+<button class="lb-top-btn" type="button" id="lbTopBtn" aria-label="回到顶部">↑</button>
+
+<!-- 弹窗 -->
+<div class="lb-modal" id="lbModal" role="dialog" aria-modal="true" aria-labelledby="lbModalTitle">
+  <div class="lb-modal-card">
+    <h3 id="lbModalTitle">提示</h3>
+    <div id="lbModalBody"></div>
+    <div class="lb-modal-actions">
+      <button class="lb-btn lb-btn-ghost" type="button" id="lbModalClose">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="lb-toast" id="lbToast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('lbToast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2200);
+  }
+
+  /* 移动端导航折叠 */
+  var menuBtn = document.getElementById('lbMenuBtn');
+  var nav = document.getElementById('lbNav');
+  if(menuBtn && nav){
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.textContent = open ? '收起' : '菜单';
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 820){
+        nav.classList.remove('is-open');
+        menuBtn.setAttribute('aria-expanded','false');
+        menuBtn.textContent = '菜单';
+      }
+    });
+  }
+
+  /* 搜索前端反馈 */
+  var searchInput = document.getElementById('lbSearchInput');
+  var searchBtn = document.getElementById('lbSearchBtn');
+  var searchFeedback = document.getElementById('lbSearchFeedback');
+  var searchIndex = [
+    {t:'城市微光·凌晨四点的面馆', k:'城市 纪实 面馆 夜班'},
+    {t:'一只木碗的七十二小时', k:'手作 木作 教程'},
+    {t:'人物访谈：拍了一百位陌生人的摄影师', k:'访谈 摄影 人物'},
+    {t:'深夜食单：一碗热汤面的三种做法', k:'美食 烹饪 教程'},
+    {t:'猫的一天：从六点到六点', k:'萌宠 猫 治愈'},
+    {t:'一个人去山里住了三天', k:'旅行 户外 露营'},
+    {t:'剪辑工作流的五个提效插件', k:'科技 剪辑 工具'},
+    {t:'夜班公交的最后一站', k:'城市 探索 公交'},
+    {t:'手作日常：拉坯失败三十次之后', k:'手作 陶艺 专题'},
+    {t:'城市微光专题征集', k:'专题 报名 征集'}
+  ];
+  function doSearch(){
+    if(!searchInput || !searchFeedback) return;
+    var q = searchInput.value.trim();
+    if(!q){
+      searchFeedback.classList.remove('is-on');
+      searchFeedback.textContent = '';
+      return;
+    }
+    var low = q.toLowerCase();
+    var hits = searchIndex.filter(function(item){
+      return item.t.toLowerCase().indexOf(low) > -1 || item.k.toLowerCase().indexOf(low) > -1;
+    });
+    searchFeedback.classList.add('is-on');
+    if(hits.length){
+      searchFeedback.textContent = '找到 ' + hits.length + ' 条与“' + q + '”相关的内容，例如：' + hits.slice(0,3).map(function(i){return i.t;}).join('；') + '。';
+    }else{
+      searchFeedback.textContent = '暂未找到“' + q + '”的直接匹配，可尝试“城市”“手作”“教程”“萌宠”等关键词。';
+    }
+  }
+  if(searchBtn) searchBtn.addEventListener('click', doSearch);
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+    });
+    searchInput.addEventListener('input', function(){
+      if(searchInput.value.trim() === '' && searchFeedback){
+        searchFeedback.classList.remove('is-on');
+        searchFeedback.textContent = '';
+      }
+    });
+  }
+
+  /* 弹窗 */
+  var modal = document.getElementById('lbModal');
+  var modalTitle = document.getElementById('lbModalTitle');
+  var modalBody = document.getElementById('lbModalBody');
+  var modalClose = document.getElementById('lbModalClose');
+  function openModal(title, html){
+    if(!modal) return;
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    if(!modal) return;
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  if(modalClose) modalClose.addEventListener('click', closeModal);
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeModal();
+    });
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  /* 计数格式化 */
+  function fmt(n){
+    if(n >= 10000) return (n/10000).toFixed(1).replace(/\.0$/,'') + '万';
+    return String(n);
+  }
+
+  /* 点赞 / 收藏 / 复制 / 分享 / 投稿 / 作者档案 */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-lb-action]');
+    if(!btn) return;
+    var action = btn.getAttribute('data-lb-action');
+
+    if(action === 'like'){
+      var isLiked = btn.classList.toggle('is-liked');
+      btn.textContent = isLiked ? '♥ 已赞' : '♡ 点赞';
+      var scope = btn.closest('.lb-focus-body') || btn.closest('.lb-list-item');
+      if(scope){
+        var numEl = scope.querySelector('[data-lb-count]');
+        if(numEl){
+          var cur = parseInt(numEl.getAttribute('data-lb-count'), 10) || 0;
+          cur = isLiked ? cur + 1 : Math.max(0, cur - 1);
+          numEl.setAttribute('data-lb-count', cur);
+          numEl.textContent = fmt(cur);
+        }
+      }
+      toast(isLiked ? '已点赞，感谢你的认可' : '已取消点赞');
+    }
+
+    if(action === 'save'){
+      var isSaved = btn.classList.toggle('is-saved');
+      btn.textContent = isSaved ? '★ 已藏' : '☆ 收藏';
+      toast(isSaved ? '已加入收藏，稍后可在个人中心查看' : '已取消收藏');
+    }
+
+    if(action === 'copy'){
+      var linkText = 'gtv小蓝 · 官方内容页';
+      function fallbackCopy(){
+        var ta = document.createElement('textarea');
+        ta.value = linkText;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try{ document.execCommand('copy'); }catch(err){}
+        document.body.removeChild(ta);
+        toast('链接已复制到剪贴板');
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(linkText).then(function(){
+          toast('链接已复制到剪贴板');
+        }).catch(fallbackCopy);
+      }else{
+        fallbackCopy();
+      }
+    }
+
+    if(action === 'share'){
+      openModal('分享这条内容', '<p>选择你喜欢的方式，把这个页面分享给朋友。gtv小蓝 的好内容，值得被更多人看见。</p>'
+        + '<div class="lb-hero-actions" style="margin-top:6px;">'
+        + '<button class="lb-btn lb-btn-primary" type="button" data-lb-action="share-done">微信</button>'
+        + '<button class="lb-btn lb-btn-ghost" type="button" data-lb-action="share-done">微博</button>'
+        + '<button class="lb-btn lb-btn-ghost" type="button" data-lb-action="share-done"> QQ</button>'
+        + '</div>'
+        + '<p style="margin-top:16px;font-size:12.5px;">点击任一渠道即完成分享示意。</p>');
+    }
+
+    if(action === 'share-done'){
+      closeModal();
+      toast('分享已就绪，感谢你帮我们传递好内容');
+    }
+
+    if(action === 'submit'){
+      openModal('创作者投稿', '<p>填写以下信息，编辑团队会在 3 个工作日内与你联系。请确保作品为原创或已获得授权。</p>'
+        + '<label for="lbSfName">称呼</label><input id="lbSfName" type="text" placeholder="怎么称呼你">'
+        + '<label for="lbSfContact">联系方式</label><input id="lbSfContact" type="text" placeholder="邮箱或常用社交账号">'
+        + '<label for="lbSfType">投稿专题</label><select id="lbSfType"><option>城市微光</option><option>手作日常</option><option>深夜食单</option><option>其他自由投稿</option></select>'
+        + '<label for="lbSfDesc">作品简介</label><textarea id="lbSfDesc" placeholder="简单说说你的作品内容、拍摄周期与画质规格"></textarea>'
+        + '<div class="lb-modal-actions"><button class="lb-btn lb-btn-primary" type="button" data-lb-action="submit-send">提交投稿</button></div>');
+    }
+
+    if(action === 'submit-send'){
+      var nameInput = document.getElementById('lbSfName');
+      if(nameInput && !nameInput.value.trim()){
+        toast('请先填写称呼');
+        return;
+      }
+      closeModal();
+      toast('投稿信息已记录，编辑团队将尽快联系你');
+    }
+
+    if(action === 'author'){
+      var name = btn.getAttribute('data-author') || '创作者';
+      openModal(name + ' · 作者档案', '<p>这是 ' + name + ' 在 gtv小蓝 的官方作者档案。作为平台签约或社区创作者，其作品持续更新于对应专题与个人合集，所有内容均为原创或获授权发布。</p>'
+        + '<p style="color:#c6dcee;">平台为创作者提供选题建议、拍摄脚本模板、后期支持与专题推荐，帮助优质内容获得更稳定的曝光。若你想与 ' + name + ' 合作，可通过投稿入口留下联系方式。</p>');
+    }
+  });
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('lbTopBtn');
+  if(topBtn){
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 460){
+        topBtn.classList.add('is-visible');
+      }else{
+        topBtn.classList.remove('is-visible');
+      }
+    }, {passive:true});
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+})();
+</script>
+</body>
+      </html>
